@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 
 export interface Car {
-  id: string;
+  id: number;
   brand: string;
 }
 
@@ -12,15 +12,15 @@ export class CarsService {
   constructor() {
     this.cars = [
       {
-        id: crypto.randomUUID(),
+        id: 1,
         brand: 'Toyota',
       },
       {
-        id: crypto.randomUUID(),
+        id: 2,
         brand: 'Honda',
       },
       {
-        id: crypto.randomUUID(),
+        id: 3,
         brand: 'Hyundai',
       },
     ];
@@ -30,7 +30,7 @@ export class CarsService {
     return this.cars;
   }
 
-  public getById(id: string): Car | undefined {
+  public getById(id: number): Car | undefined {
     const car = this.cars.find((car) => car.id === id);
     return car;
   }
