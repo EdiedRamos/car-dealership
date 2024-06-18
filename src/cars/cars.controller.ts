@@ -8,7 +8,8 @@ import {
   Patch,
   Post,
 } from '@nestjs/common';
-import { Car, CarsService } from './cars.service';
+import { CarsService } from './cars.service';
+import type { Car } from './interfaces/car.interface';
 
 @Controller('cars')
 export class CarsController {
