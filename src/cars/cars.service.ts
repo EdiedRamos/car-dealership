@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 
 export interface Car {
   id: number;
@@ -30,8 +30,11 @@ export class CarsService {
     return this.cars;
   }
 
-  public getById(id: number): Car | undefined {
+  public getById(id: number): Car {
     const car = this.cars.find((car) => car.id === id);
+    if (!car) {
+      throw new NotFoundException(`Car with id ${id} not found`);
+    }
     return car;
   }
 }
