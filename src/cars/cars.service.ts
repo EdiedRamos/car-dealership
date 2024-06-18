@@ -9,15 +9,15 @@ export class CarsService {
   constructor() {
     this.cars = [
       {
-        id: 1,
+        id: crypto.randomUUID(),
         brand: 'Toyota',
       },
       {
-        id: 2,
+        id: crypto.randomUUID(),
         brand: 'Honda',
       },
       {
-        id: 3,
+        id: crypto.randomUUID(),
         brand: 'Hyundai',
       },
     ];
@@ -27,7 +27,7 @@ export class CarsService {
     return this.cars;
   }
 
-  public getById(id: number): Car {
+  public getById(id: string): Car {
     const car = this.cars.find((car) => car.id === id);
     if (!car) {
       throw new NotFoundException(`Car with id ${id} not found`);
