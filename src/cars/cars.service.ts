@@ -50,4 +50,10 @@ export class CarsService {
     targetCar.brand = car.brand;
     return targetCar;
   }
+
+  public deleteCar(id: string) {
+    if (this.getById(id)) {
+      this.cars = this.cars.filter((car) => car.id !== id);
+    }
+  }
 }
