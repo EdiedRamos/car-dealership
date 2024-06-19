@@ -30,9 +30,10 @@ export class CarsController {
   // * This pipe was configure globally in main.ts
   // @UsePipes(ValidationPipe)
   createCar(@Body() carBody: CreateCarDto) {
+    const created = this.carService.createCar(carBody);
     return {
-      method: 'POST',
-      body: carBody,
+      method: 'Car created',
+      body: created,
     };
   }
 
